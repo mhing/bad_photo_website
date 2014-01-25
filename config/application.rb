@@ -27,7 +27,7 @@ module BadPhotoWebsite
 
     I18n.enforce_available_locales = true
 
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.eot *.ttf *.woff)
 
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
