@@ -1,0 +1,26 @@
+<% provide(:title, 'NYC') %>
+<div id="nycCarousel" class="carousel" data-ride="carousel">
+	<!-- indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#nycCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#nycCarousel" data-slide-to="1"></li>
+		<li data-target="#nycCarousel" data-slide-to="2"></li>
+    </ol>
+	<div class="carousel-inner">
+		<div class="item active">
+			<%= image_tag("nyc/nyc1.jpg", alt: "First image") %>
+		</div>
+		<div class="item">
+			<%= image_tag("nyc/nyc2.jpg", alt: "Second image") %>
+		</div>
+		<div class="item">
+			<%= image_tag("nyc/nyc3.jpg", alt: "Third image") %>
+		</div>
+	</div>
+	<a class="left carousel-control" href='' data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a class="right carousel-control" href='' data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>

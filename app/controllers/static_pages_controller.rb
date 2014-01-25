@@ -7,4 +7,16 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def la
+  end
+
+  def modelTests
+  end
+
+  def nyc
+  end
+
+  def ohio
+  end
 end

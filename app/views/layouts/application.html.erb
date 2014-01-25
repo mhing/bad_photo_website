@@ -2,17 +2,50 @@
 <html>
 	<head>
 		<title><%= full_title(yield(:title)) %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="all" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+		<meta name="description" content="Brett Davis Photography Portfolio" />
+		<meta name="keywords" content="Brett Davis Photography Portfolio BADPHOTO" />
+		<meta name="author" content="Brett Davis" />
+		<meta property="og:title" content="Brett Davis Photography"/>
+		<meta property="og:site_name" content="BADPHOTO"/>
+		<meta property="og:url" content="http://brettdavisphotography.tumblr.com/">
+		<meta property="og:type" content="portfolio" />
+
+		<%= favicon_link_tag '/favicon.ico' %>
+
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
+
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
 		<div class="container">
-			<%= yield %>
-			<%= render 'layouts/footer' %>
+			<div class="row">
+				<div class="span1">
+					<%= render 'layouts/sidebar' %>
+				</div>
+				<div class="span11">
+					<%= yield %>
+				</div>
+			</div>
 			<%= debug(params) if Rails.env.development? %>	
 		</div>
+		<div id="footer">
+			<div class="container">
+				<%= render 'layouts/footer' %>
+			</div>
+		</div>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <!--script src="/assets/bootstrap.min.js"></script-->
 	</body>
 </html>

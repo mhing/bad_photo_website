@@ -4,6 +4,14 @@
 
 $grayMediumLight: #eaeaea;
 
+$carouselHeight: 570px;
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 /* universal */
 
 html {
@@ -74,6 +82,49 @@ p {
 	}
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* sidebar */
+
+.sidebar {
+	color: black;
+	font-size: 1.1em;
+	list-style: none;
+	margin-left: -50px;
+	padding-top: 15px;
+	ul {
+		list-style: none;
+		li {
+			text-decoration: none;
+			&.current{
+				background-color: black;
+				color: white;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+				&:hover {
+					background-color: yellow;
+				}
+				&:active {
+					background-color: black;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+
 /* footer */
 
 footer {
@@ -89,3 +140,203 @@ footer {
 	}
 }
 
+/* CUSTOMIZE THE CAROUSEL */
+
+.carousel {
+  height: $carouselHeight;
+  margin-bottom: 0;
+  position: relative;
+  a {
+  	height: $carouselHeight;
+  	top: 20px;
+  }
+}
+
+.carousel .item {
+  height: $carouselHeight;
+  background-color: #777;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: $carouselHeight;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner > .item {
+  position: relative;
+  display: none;
+  -webkit-transition: 0.6s ease-in-out left;
+          transition: 0.6s ease-in-out left;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  line-height: 1;
+}
+
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+
+.carousel-inner > .active {
+  left: 0;
+}
+
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  border: none;
+  border-radius: 0px;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  background: none;
+
+  &:hover, &:focus {
+	text-decoration: none;
+	outline: none;
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+  	//background: $grayLight;
+  }
+}
+
+.carousel-control.right {
+  right: 0;
+  left: auto;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 45%;
+  z-index: 5;
+  display: inline-block;
+  color: black;
+}
+
+.carousel-control .glyphicon-chevron-left {
+  left: 30%;
+}
+
+.carousel-control .glyphicon-chevron-right {
+  right: 30%;
+}
+
+.carousel-indicators {
+  position: absolute;
+  top: 90%;
+  bottom: 10px;
+  left: 45%;
+  z-index: 15;
+  width: 60px;
+  text-align: center;
+  list-style: none;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+.carousel-indicators .active {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-caption .btn {
+  text-shadow: none;
+}
+
+/* Photo Caption */
+.photo-caption {
+	text-align: center;
+}
+
+/* Glyphicon */
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+
+/* miscellaneous */
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
