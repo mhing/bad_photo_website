@@ -5,6 +5,7 @@
 $grayMediumLight: #eaeaea;
 
 $carouselHeight: 570px;
+$carouselWidth: 860px;
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
@@ -169,12 +170,13 @@ footer {
   position: absolute;
   top: 0;
   /*left: 0;*/
+  /*width: $carouselWidth;*/
   height: $carouselHeight;
 }
 
 .carousel-inner {
   position: relative;
-  /*width: 100%;*/
+  width: 100%;
   overflow: hidden;
 }
 
@@ -188,8 +190,10 @@ footer {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  max-width: 100%;
+  /*max-width: 100%;*/
   line-height: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .carousel-inner > .active,

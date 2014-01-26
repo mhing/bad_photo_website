@@ -92,6 +92,28 @@ displayPhoto = (newIndex) ->
 	return false
 
 
+# Update current image
+
+updateImage = (id) ->
+	if (id == "first")
+		image = document.getElementById(id)
+		width = image.width
+		height = image.height
+		frameWidth = document.getElementById("image-frame").clientWidth
+		frameHeight = document.getElementById("image-frame").clientHeight
+
+		if ((width + 20) > frameWidth)
+			newWidth = frameWidth
+			newHeight = Math.round((height * newWidth) / width)	
+			image.height = newHeight
+			image.width = newWidth
+		else
+			if (width < frameWidth)
+				widthCalc = ((frameWidth - width) / 2)
+				image.style.left = widthCalc + "px"
+
+		return false
+
 
 # Updates indicator when one is selected
 
@@ -139,5 +161,5 @@ $ ->
 		moveToCarouselIndex(index)
 
 $ ->
-	$(document).ready ->
-		#updateImages()
+	$('img').load ->
+		updateImage($(this).attr('id'))
