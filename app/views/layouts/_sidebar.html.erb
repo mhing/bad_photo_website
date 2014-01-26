@@ -1,8 +1,8 @@
 <nav class="sidebar" >
 	<ul class="pull-left">
-		<li><%= link_to "Model Tests", modelTests_path %></li>
-		<li><%= link_to "LA", la_path, :data_background_color => 'la' %></li>
-		<li><%= link_to "NYC", nyc_path %></li>
-		<li><%= link_to "Ohio", ohio_path %></li>
+		<li class="<%= "selected" if current_page?(modelTests_path) %>"><%= link_to "Model Tests", modelTests_path %></li>
+		<li class="<%= "selected" if current_page?(la_path) %>"><%= link_to "LA", la_path %></li>
+		<li class="<%= "selected" if current_page?(nyc_path) %>"><%= link_to "NYC", nyc_path %></li>
+		<li class="<%= "selected" if current_page?(ohio_path) %>"><%= link_to "Ohio", ohio_path %></li>
 	</ul>
 <nav>

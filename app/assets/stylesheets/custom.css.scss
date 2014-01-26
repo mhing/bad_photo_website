@@ -103,22 +103,23 @@ p {
 	padding-top: 15px;
 	ul {
 		list-style: none;
+		margin-left: 0px;
 		li {
 			text-decoration: none;
-			&.current{
-				background-color: black;
-				color: white;
-			}
+			line-height: 28px;
 			a {
 				text-decoration: none;
 				color: black;
+				padding: 5px;
 				&:hover {
-					background-color: yellow;
+					background-color: $grayMediumLight;
 				}
-				&:active {
-					background-color: black;
-					color: white;
-				}
+			}
+		}
+		li.selected {
+			a {
+				background-color: black;
+				color: white;
 			}
 		}
 	}
