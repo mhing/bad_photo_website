@@ -5,7 +5,7 @@
 
 # Displays the correct index on the display
 
-updateCarouselIndex = (element, action) ->
+updateCarouselIndex = (action) ->
 	if(action == 'prev') # go back an image
 		orderedList = document.getElementsByTagName("OL")[0] # first ol
 		elementList = orderedList.getElementsByTagName("LI")
@@ -67,10 +67,47 @@ displayPhoto = (newIndex) ->
 	photos[newIndex].setAttribute("class", "item active")
 
 
+# Updates indicator when one is selected
+
+updateIndicator = (index) ->
+	orderedList = document.getElementsByTagName("OL")[0] # first ol
+	elementList = orderedList.getElementsByTagName("LI")
+	for element in elementList
+		element.setAttribute("class", "")
+
+	elementList[index].setAttribute("class", "active")
+
+	return false
+
+
+# Display selected index
+
+moveToCarouselIndex = (index) ->
+	if (isIndexActive(index) == false) # not active so update picture
+		displayPhoto(index)
+		updateIndicator(index)
+	return false
+
+
+# Checks if index is active
+
+isIndexActive = (index) ->
+	orderedList = document.getElementsByTagName("OL")[0] # first ol
+	elementList = orderedList.getElementsByTagName("LI")
+	selectedElement = elementList[index]
+
+	if (selectedElement.className == "active")
+		return true
+	else
+		return false
+
 # Handles clicks on the data slide a elements
+$ ->
+	$("a[data-slide]").click ->
+		action = $(this).data("slide")
+		updateCarouselIndex(action)
 
 $ ->
-  $("a[data-slide]").click ->
-    action = $(this).data("slide")
-    updateCarouselIndex(this, action)
-
+	$(".carousel-indicators li").click ->
+		index = $(this).data("slide-to")
+		moveToCarouselIndex(index)

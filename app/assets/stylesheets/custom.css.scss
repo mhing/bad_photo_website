@@ -260,6 +260,9 @@ footer {
   width: 60px;
   text-align: center;
   list-style: none;
+  #background-color: black;
+  #height: 20px;
+  #padding: 2px 2px 2px 5px;
 }
 
 .carousel-indicators li {
@@ -273,6 +276,11 @@ footer {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #ffffff;
   border-radius: 10px;
+  a {
+  	&:hover {
+  		background-color: blue;
+  	}
+  }
 }
 
 .carousel-indicators .active {
