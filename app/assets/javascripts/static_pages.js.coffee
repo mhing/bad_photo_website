@@ -66,7 +66,6 @@ displayPhoto = (newIndex) ->
 	
 	photos[newIndex].setAttribute("class", "item active")
 
-#Refactor this image resize to on load
 	imageSrc = photos[newIndex].getElementsByTagName("IMG")[0]
 	origWidth = imageSrc.width
 	origHeight = imageSrc.height
@@ -138,3 +137,7 @@ $ ->
 	$(".carousel-indicators li").click ->
 		index = $(this).data("slide-to")
 		moveToCarouselIndex(index)
+
+$ ->
+	$(document).ready ->
+		#updateImages()

@@ -168,7 +168,7 @@ footer {
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
-  left: 0;
+  /*left: 0;*/
   height: $carouselHeight;
 }
 
@@ -188,7 +188,7 @@ footer {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  /*max-width: 100%;*/
+  max-width: 100%;
   line-height: 1;
 }
 
