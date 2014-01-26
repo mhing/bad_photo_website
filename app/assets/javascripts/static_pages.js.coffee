@@ -63,8 +63,35 @@ displayPhoto = (newIndex) ->
 	
 	for photo in photos
 		photo.setAttribute("class", "item")
-
+	
 	photos[newIndex].setAttribute("class", "item active")
+
+#Refactor this image resize to on load
+	imageSrc = photos[newIndex].getElementsByTagName("IMG")[0]
+	origWidth = imageSrc.width
+	origHeight = imageSrc.height
+	newHeight = photos[newIndex].clientHeight
+	newWidth = Math.round((origWidth * newHeight) / origHeight)
+	
+	divWidth = photos[newIndex].clientWidth
+
+	if ((newWidth + 20) > divWidth)
+		newWidth = divWidth
+		newHeight = Math.round((origHeight * newWidth) / origWidth)	
+		imageSrc.height = newHeight
+		imageSrc.width = newWidth
+	else
+		if (newWidth < divWidth)
+			imageSrc.height = newHeight
+			imageSrc.width = newWidth
+			widthCalc = ((divWidth - newWidth) / 2)
+			imageSrc.style.left = widthCalc + "px"
+		else
+			imageSrc.height = newHeight
+			imageSrc.width = newWidth
+
+	return false
+
 
 
 # Updates indicator when one is selected
