@@ -32,15 +32,13 @@
 				</div>
 				<div class="span11">
 					<%= yield %>
+					<div class="copyright">
+						<p>All photographs that appear on this website are the sole copyright of Brett Davis and are protected under the Copyright Laws of the United States.<br/>Reproduction, storage or transmission of any images by any means is prohibited without the express prior written permission of Brett Davis.</p>
+					</div>
 				</div>
 			</div>
-			<%= debug(params) if Rails.env.development? %>	
 		</div>
-		<div id="footer">
-			<div class="container">
-				<%= render 'layouts/footer' %>
-			</div>
-		</div>
+		<%= render 'layouts/footer' %>
 
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
